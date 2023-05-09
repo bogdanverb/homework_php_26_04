@@ -1,0 +1,21 @@
+parameters:
+    database:
+        dsn: 'mysql:host=127.0.0.1;dbname=test'
+        user: 'php'
+        password: 'php'
+
+services:
+    - App\Router\RouterFactory::createRouter
+
+    userManager:
+        class: App\UserManager
+
+    authenticator:
+        class: App\Authenticator
+        arguments: ['@userManager']
+
+    user:
+        class: App\User
+
+extensions:
+    security: vendor\nette\security\src\Bridges\SecurityDI\SecurityExtension.php

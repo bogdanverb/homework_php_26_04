@@ -1,0 +1,13 @@
+services:
+    userManager:
+        class: App\UserManager
+
+    authenticator:
+        class: App\Authenticator
+        arguments: ['@userManager']
+
+    user:
+        class: App\User
+
+extensions:
+    security: my-project\vendor\nette\security\src\Bridges\SecurityDI\SecurityExtension

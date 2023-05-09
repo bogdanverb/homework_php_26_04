@@ -1,0 +1,7 @@
+services:
+    - App\Router\RouterFactory::createRouter
+
+extensions:
+    security: my-project\vendor\nette\security\src\Bridges\SecurityDI\SecurityExtension
+
+
